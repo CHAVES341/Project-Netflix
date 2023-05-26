@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="español">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guía de viaje hacia el amor | Sitio oficial de Netflix</title>
+    <link rel="icon" href="../img/icono-netfris.png">
+    <link rel="stylesheet" href="../css/style-index.css">
+    <link rel="stylesheet" href="../css/css-Pelis-Series.css">
+</head>
+<body>
+    <!-- Datos del menú de página -->
+    <header>
+        <div class="contenedor">
+            <a href="../index.html"><img src="../img/Netflix-Logo.png" alt="Logo Netflix" class="logo"></a>            
+        <!-- Menu-->
+            <ul class="list">
+                <a href="../index.html"><li>Inicio</li></a>
+                <li>Series</li>
+                <li>Peliculas</li>
+                <li>Mi lista</li>
+            </ul>
+        </div>
+    </header>
+<body>
+    <section class="banner">
+        <img src="../img/Guia de viaje hacia el amor/fondo.jpj.jpg" alt="personaje" class="bg" />
+        <span class="sombraImg"></span>
+        <div class="content">
+        <img src="../img/Guia de viaje hacia el amor/logo.jpj.png" class="movieTitle" />
+          <h4>
+            <span>2023</span>
+            <span><i>7+</i></span>
+            <span>1h 36min</span>
+            <span>Románticas</span>
+          </h4>
+          <p>
+            El trabajo de una ejecutiva de viajes estadounidense la lleva a Vietnam, donde un 
+            guía encantador le descubre un estilo de vida que la transformará para siempre.
+          </p>
+          <div class="buttons">
+            <a href="#">Play</a>
+            <a href="#">Mi lista</a>
+          </div>
+        </div>
+        <a href="#" class="play" onclick="toggleVideo();">
+            <img src="../img/play.png" />Ver el trailer
+        </a>
+      </section>
+      <section class="trailer">
+        <video src="../imges/patito.mp4" controls="true"></video>
+        <img src="../img/close.png" class="close" onclick="toggleVideo();">
+
+      </section>
+    </main>
+    <script> 
+        function toggleVideo(){
+            const trailer= document.querySelector(".trailer");
+            const video = document.querySelector("video");
+            trailer.classList.toggle("active");
+            video.currentTime=0;
+            video.pause();
+  }
+    </script>
+  </body>
+</html>
