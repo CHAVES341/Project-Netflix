@@ -1,0 +1,260 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;    
+}
+
+:root{
+--color-negro: #0d0d0d;
+--color-negro-2: #181818;
+--color-texto-primario: #FFFFFF;
+--color-rojo: #ff011a;
+--color-blanco-2: #fff;
+--color-fondo: #141414;
+--color-negro-3: #000;
+}
+
+/* elementos base */
+body{
+    background: var(--color-fondo);
+    font-family: 'Roboto', sans-serif;
+    color: var(--color-texto-primario);
+}
+
+.contenedor {
+	width: 90%;
+	margin: auto;
+}
+
+header .contenedor{
+    display: flex;
+    align-items: center; /* alinea el menú con el centro del contenedor */
+    justify-content: space-between; /*Hace un hueco entre el logo y el menu*/
+    flex-direction: row; /* coloca el menú junto al logotipo */
+}
+
+.logo {
+    max-width: 168px; /* Tamaño del logo */
+    margin-left: 5px; /* Espaciado entre el lado izquierdo de la pantalla y el logotipo */
+}
+
+/*Estilo del menu */
+
+li{
+    display: inline-block;
+    position: relative;
+    color: var(--color-texto-primario);
+    font-family: sans-serif;
+    font-size: 17px;
+    cursor: pointer;
+    transition: 0.4s all ease;
+    margin-right: 25px;
+}
+
+li:hover{
+    color: #cdcdcd;
+    transition: 0.4s all ease;
+}
+
+li::after{
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scalex(0);
+    height: 2px;
+    bottom: -1.2px; /*La posicion del efecto de la line roja*/
+    left: 0;
+    background-color: var(--color-rojo);
+    transform-origin: bottom right;
+    transition: transform 0.5s ease-out;
+    
+}
+
+li:hover::after{
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+
+
+/* responsivo */
+@media screen and (max-width: 700px) {
+    header .contenedor {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .button {
+        margin-top: 5px;
+        width: 300px;
+    }
+}
+/*---------Portada de la pelicula y brebe información-------------*/
+
+.banner {
+    position: relative;
+    width: 100%;
+    min-height: 90.5vh;
+    padding: 0 100px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+.banner .bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    -o-object-fit: cover;
+    object-fit: cover;
+}
+.banner .sombraImg {
+    position: absolute;
+    background: linear-gradient(45deg, black 30%, transparent);
+    height: 100%;
+    width: 100%;
+    left: 0;
+    top: 0;
+}
+.content {
+    position: relative;
+    z-index: 1;
+    max-width: 550px;
+    margin-left: 60px;
+}
+
+.movieTitle {
+    max-width: 100%;
+}
+
+.banner .content h4 {
+    color: rgba(255, 255, 255, 0.5);
+    font-weight: 500;
+}
+.banner .content h4 span {
+    padding: 0 10px;
+    border-right: 1px solid rgba(255, 255, 255, 0.5);
+}
+.banner .content h4 span:first-child {
+    padding-left: 0;
+}
+.banner .content h4 span:last-child {
+    border-right: none;
+}
+.banner .content h4 span i {
+    background: #de0611;
+    color: #fff;
+    padding: 0 8px;
+    display: inline-block;
+    border-radius: 2px;
+    font-style: normal;
+}
+.banner .content p {
+    font-size: 1em;
+    font-weight: 300;
+    line-height: 1.5em;
+    color: #fff;
+    margin: 10px 0 20px;
+}
+.banner .content .buttons {
+    position: relative;
+}
+.banner .content .buttons a {
+    position: relative;
+    display: inline-block;
+    margin-right: 10px;
+    background: #de0611;
+    color: #fff;
+    padding: 6px 20px;
+    text-decoration: none;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+.banner .content .buttons a:nth-child(2) {
+    background: rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+.banner .content .buttons a:hover:nth-child(2) {
+    background: #de0611;
+}
+
+.play {
+    position: absolute;
+    bottom: 50px;
+    left: 100px;
+    display: inline-flex;
+    justify-content: flex-start;
+    align-items: center;
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: 500;
+    text-decoration: none;
+    letter-spacing: 1px;
+    font-size: 1.2em;
+    cursor: pointer;
+    margin-left: 60px;
+}
+.play img {
+    margin-right: 10px;
+    max-width: 50px;
+}
+
+.trailer {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10000;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    -webkit-backdrop-filter: blur(20px);
+            backdrop-filter: blur(20px);
+    visibility: hidden;
+    opacity: 0;
+}
+.trailer.active {
+    visibility: visible;
+    opacity: 1;
+}
+.trailer video {
+    max-width: 900px;
+    outline: none;
+    border-radius: 5px;
+}
+
+.close {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    cursor: pointer;
+    filter: invert(1);
+    max-width: 32px;
+}
+
+.banner {
+    padding: 100px 50px;
+    }
+    .banner .play {
+    left: 50px;
+    font-size: 1em;
+    }
+    .play img {
+    margin-right: 10px;
+    max-width: 40px;
+    }
+    .trailer video {
+    max-width: 90%;
+    }
+
+.banner {
+    padding: 220px 20px 120px;
+        }
+.banner .play {
+    left: 20px;
+    font-size: 1em;
+    bottom: 30px;
+}

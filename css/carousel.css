@@ -1,0 +1,94 @@
+/* Variables globales */
+:root {
+      /* Dimensiones de las fichas */
+      --espaciado-fichas-carrusel: 10px;
+      --ancho-ficha-carrusel: 250px;
+      --alto-ficha-carrusel: calc(var(--ancho-ficha-carrusel) / (16 / 9));
+
+      /* Factor de crecimiento */
+      --factor-crecimiento-carrusel: 1.3;
+
+      /* Opacidad al desvanecer */
+      --opacidad-desvanecer-carrusel: 0.25;
+      --opacidad-normal-carrusel: 1;
+
+      /* Desplazamientos automáticos - NO MODIFICAR */
+      --desplazamiento-izquierda-carrusel: calc(-1 * (var(--ancho-ficha-carrusel) * (var(--factor-crecimiento-carrusel) - 1) / 2));
+      --desplazamiento-derecha-carrusel: calc(var(--ancho-ficha-carrusel) * (var(--factor-crecimiento-carrusel) - 1));
+
+      /* Velocidades de transición */
+      --transicion-carrusel-1: 1s;
+      --transicion-carrusel-2: 0.5s;
+      --transicion-carrusel-3: 0.3s;
+}
+
+/* Contenedor del carrusel */
+.carrusel {
+      margin: 0;
+      box-sizing: border-box;
+      width: 100%;
+      overflow-x: auto;
+      overflow-y: hidden;
+      white-space: nowrap;
+      margin-top: -40px;
+}
+
+.titulo-Tendencia-ahora{
+      margin-left: 38px;
+      position: relative;
+      top: 4px;
+}
+
+/* Fila del carrusel */
+.fila-carrusel {
+      white-space: nowrap;
+      margin-top: calc((var(--alto-ficha-carrusel) * (var(--factor-crecimiento-carrusel) - 1)) / 2);
+      margin-bottom: calc((var(--alto-ficha-carrusel) * (var(--factor-crecimiento-carrusel) - 1)) / 2);
+      margin-left: calc((var(--ancho-ficha-carrusel) * (var(--factor-crecimiento-carrusel) - 1)) / 2);
+      margin-right: calc((var(--ancho-ficha-carrusel) * (var(--factor-crecimiento-carrusel) - 1)) / 2);
+      transition: var(--transicion-carrusel-2);
+}
+
+/* Ficha de contenido */
+.ficha-carrusel {
+      position: relative;
+      display: inline-block;
+      width: var(--ancho-ficha-carrusel);
+      height: var(--alto-ficha-carrusel);
+      margin-right: var(--espaciado-fichas-carrusel);
+      transition: var(--transicion-carrusel-2);
+      transform-origin: center left;
+      cursor: pointer;
+}
+
+/* Agregar margen adicional a la última ficha del carrusel */
+.ficha-carrusel:last-of-type {
+      margin-right: calc(var(--ancho-ficha-carrusel) / 2);
+}
+
+/* Asegurar que todos los elementos dentro de la ficha sean de tipo bloque */
+.ficha-carrusel * {
+      display: block;
+}
+
+/* Al pasar el cursor sobre la fila del carrusel */
+.fila-carrusel:hover {
+      transform: translate3d(var(--desplazamiento-izquierda-carrusel), 0, 0);
+}
+
+/* Al pasar el cursor sobre la ficha de contenido en la fila del carrusel 
+.fila-carrusel:hover .ficha-carrusel {
+      opacity: var(--opacidad-desvanecer-carrusel);
+}
+*/
+
+/* Al pasar el cursor sobre la ficha de contenido */
+.ficha-carrusel:hover {
+      transform: scale(var(--factor-crecimiento-carrusel));
+      opacity: var(--opacidad-normal-carrusel);
+}
+
+/* Al pasar el cursor sobre la ficha de contenido */
+.ficha-carrusel:hover ~ .ficha-carrusel {
+      transform: translate3d(var(--desplazamiento-derecha-carrusel), 0, 0);
+}
