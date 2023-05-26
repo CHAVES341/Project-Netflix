@@ -1,0 +1,45 @@
+  # Recreando Netflix
+  
+  **Diseñado con 💗 por [CHAVES341]https://github.com/CHAVES341
+  
+  
+  Spaisn:  Este proyecto trata de recrear mas o menos la pagian de netflix.
+  Inglis:  This project tries to recreate more or less the netflix page.
+  Italiano: Questo progetto cerca di ricreare più o meno la pagina netflix.
+
+---------------------------------------------------------------------------------------------------
+
+Spaisn: No pude incrementar los triler se la series y peliculas por el peso. 
+
+<section class="trailer">
+        <video src="#" controls="true"></video>
+        <img src="../img/close.png" class="close" onclick="toggleVideo();">
+
+</section>
+
+Con que le pongan un enlace de un video local se reproducira el video, que el video sea 720p.
+
+---------------------------------------------------------------------------------------------------
+
+Inglis: I could not increase the triler of the series and movies by weight.
+
+<section class="trailer">
+        <video src="#" controls="true"></video>
+        <img src="../img/close.png" class="close" onclick="toggleVideo();">
+
+</section>
+
+With a link to a local video, the video will play, the video will be 720p.
+------------------------------------------------------------------------------------------------------
+
+Italiano: Non potevo aumentare il triler della serie e dei film in peso.
+
+<section class="trailer">
+        <video src="#" controls="true"></video>
+        <img src="../img/close.png" class="close" onclick="toggleVideo();">
+
+</section>
+
+Con che link puoi riprodurre un video locale, quel video sarà 720p.
+
+-------------------------------------------------------------------------------------------------------------
